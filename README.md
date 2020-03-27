@@ -5,6 +5,8 @@ Overview:
 To create an app that can schedule orders placed by customers at different shops in their locality. In this way, the shops will not be crowded at any given time. Moreover, this can serve as a legitimate proof for the police.
 
 Points:
+
+
 Shop owner registers with there shop location and shop type.
 The app collects the item’s data and the location from the user. 
 Then it shows all nearby shows selling those items.
@@ -16,11 +18,19 @@ Requests have to be made at least one day before the delivery day.
 Limits to be set on the number of customer per 15 mins.
 A limited number of outdoor visits for every user.
 To generate a pass with items, shop name and timings with user details which can act as proof for the police.
+
+
 Interface:
+
+
 Seller register/login
 User register/login
 Sellers’s part->list of orders
 User part -> new order, orders placed,orders timings.
 Both app and web interface
+
+
 Future:
+
+
 Collect phone number of volunteers and spread these numbers such that people can call these and place orders who do not have a smartphone.
