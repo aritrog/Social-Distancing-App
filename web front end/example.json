@@ -1,0 +1,35 @@
+var olist=[
+		{
+			"orderid" : "123456a",
+			"items": "rice,wheat,potato",
+			"type" : "grocery",
+			"status": "Accepted",
+			"time" : "06:30 pm to 06:45 pm 30/03/2020"
+		}
+		{
+			"orderid" : "123456b",
+			"items": "chest pain",
+			"type" : "doctor",
+			"status": "Accepted",
+			"time" : "06:30 pm to 06:45 pm 30/03/2020"
+		}
+		{
+			"orderid" : "123456b",
+			"items": "paracetamol",
+			"type" : "medicine",
+			"status": "Accepted",
+			"time" : "05:30 pm to 05:45 pm 30/03/2020"
+		}
+
+
+
+]
+var openf = new XMLHttpRequest();
+		console.log("hi")
+		openf.open('GET','https://raw.githubusercontent.com/aritrog/Social-Distancing-App/master/example.json')
+		openf.onload=function(){
+			var data =JSON.parse(openf.responseText)
+
+			console.log(openf[0])
+		}
+		console.log(olist)
