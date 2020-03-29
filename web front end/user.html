@@ -37,7 +37,7 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-  <script https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/esm/popper.min.js></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 	   
@@ -62,6 +62,10 @@
 			
 			<div class="col-md-4 col-sm-4 col-xm-12 pad2">
 						<h2>Order Please!!</h2>
+						<div class="col p-2">
+						    <label>Address</label>
+					        <button id="find_btn">Find Me</button>
+                        </div>
 						<form>
 						    <div class="form-group">
 								<label>Full Name</label>
@@ -73,29 +77,17 @@
 							</div>
 							<div class="form-group">
 							    <label>Type</label>
-						        <div class="dropdown">
-                                    <button class="btn btn-block btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        Select the type
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#">Medicine</a></li>
-                                        <li><a href="#">Grocery</a></li>
-                                        <li><a href="#">Doctor</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </div>
+						        <select class="form-control" id="exampleFormControlSelect2">
+                                    <option>Medicine</option>
+                                    <option>Grocery</option>
+                                    <option>Doctor</option>
+                                </select>
                             </div>
 							<div class="form-group">
 								<label>Phone</label>
 								<input type="email" class="form-control" placeholder="Phone No. ">
 							</div>
-							<div class="form-group">
-							    <label>Address</label>
-						        <button onclick="getLocation()">get</button>
-						        <p id="demo"></p>
-							</div>
+							
 							<button class="btn btn-warning btn-block">Confirm</button>
 							<br>
 							
@@ -111,20 +103,16 @@
     </div>
     
       <script type="text/javascript">
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-    
-function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
+        $("#find_btn").click(function () { //user clicks button
+	    if ("geolocation" in navigator){ //check geolocation available 
+		//try to get user current location using getCurrentPosition() method
+		navigator.geolocation.getCurrentPosition(function(position){ 
+				console.log("Lat : "+position.coords.latitude+" Long :"+ position.coords.longitude);
+			});
+	}else{
+		console.log("Browser doesn't support geolocation!");
+	}
+});
 </script>
 </body>
 </html>
